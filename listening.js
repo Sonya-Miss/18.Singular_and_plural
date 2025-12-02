@@ -2,27 +2,27 @@ const gameData = [
     {
         correctEnglishPhrase: "He is a man",
         draggableEnglishWords: ["He", "is", "a", "man"],
-        audioPath: "audio/15.1.mp3"
+        audioPath: "./Audio/15.1.mp3"
     },
     {
         correctEnglishPhrase: "She is a woman",
         draggableEnglishWords: ["She", "is", "a", "woman"],
-        audioPath: "audio/15.2.mp3"
+        audioPath: "./Audio/15.2.mp3"
     },
     {
         correctEnglishPhrase: "It is a green cucumber",
         draggableEnglishWords: ["It", "is", "a", "green", "cucumber"],
-        audioPath: "audio/15.3.mp3"
+        audioPath: "./Audio/15.3.mp3"
     },
     {
         correctEnglishPhrase: "They are boys",
         draggableEnglishWords: ["They", "are", "boys"],
-        audioPath: "audio/15.4.mp3"
+        audioPath: "./Audio/15.4.mp3"
     },
     {
         correctEnglishPhrase: "They are girls",
         draggableEnglishWords: ["They", "are", "girls"],
-        audioPath: "audio/15.5.mp3"
+        audioPath: "./Audio/15.5.mp3"
     }
 ];
 

@@ -1,40 +1,32 @@
-// game5_dialog_words.js
-
-// --- ДАНІ ДЛЯ ГРИ 5: Імітація діалогу (Склади переклад по слову) ---
+// --- ДАНІ ДЛЯ ГРИ 4: Імітація діалогу (Склади переклад по слову) ---
 const dialogPuzzlesData5 = [
     {
-        ukrainianPhrase: "Привіт! Як твої справи? Я сумний",
-        correctEnglishPhrase: "Hi! How are you? I'm sad?",
-        draggableEnglishWords: ["Hi!", "How", "are", "you?", "I'm", "sad"] 
+        ukrainianPhrase: "Це є червона полуниця",
+        correctEnglishPhrase: "It is a red strawberry",
+        draggableEnglishWords: ["It", "is", "a", "red", "strawberry"]
     },
     {
-        ukrainianPhrase: "Привіт, Як твої справи? Я чудово",
-        correctEnglishPhrase: "Hello! How are you? I'm great?",
-        draggableEnglishWords: ["Hello!", "How", "are", "you?", "I'm", "great"]
+        ukrainianPhrase: "Це є щасливий чоловік",
+        correctEnglishPhrase: "He is a happy man",
+        draggableEnglishWords: ["He", "is", "a", "happy", "man"]
     },
     {
-        ukrainianPhrase: "Добрий ранок, Як твої справи? Я щасливий",
-        correctEnglishPhrase: "Good morning! How are you? I'm happy?",
-        draggableEnglishWords: ["Good", "morning", "How", "are", "you?", "I'm", "happy"]
+        ukrainianPhrase: "Вони є щасливі дівчата",
+        correctEnglishPhrase: "They are happy girls",
+        draggableEnglishWords: ["They", "are", "happy", "girls"]
     },
     {
-        ukrainianPhrase: "Добрий день, Як твої справи? Я втомлений",
-        correctEnglishPhrase: "Good afternoon! How are you? I'm tired?",
-        draggableEnglishWords: ["Good", "afternoon", "How", "are", "you?", "I'm", "tired"]
+        ukrainianPhrase: "Вони є жовті банани",
+        correctEnglishPhrase: "They are yellow bananas",
+        draggableEnglishWords: ["They", "are", "yellow", "bananas"]
     },
     {
-        ukrainianPhrase: "Добрий вечір, Як твої справи? Я голодний",
-        correctEnglishPhrase: "Good evening! How are you? I'm hungry?",
-        draggableEnglishWords: ["Good", "evening", "How", "are", "you?", "I'm", "hungry"]
+        ukrainianPhrase: "Це є біла вівця",
+        correctEnglishPhrase: "It is a white sheep",
+        draggableEnglishWords: ["It", "is", "a", "white", "sheep"]
     },
-    {
-        ukrainianPhrase: "Як твої справи? Я добре Добраніч",
-        correctEnglishPhrase: "Hi! How are you? I'm good? Good night",
-        draggableEnglishWords: ["How", "are", "you?", "I'm", "good", "Good", "night"]
-    }
 ];
-// game5_dialog_words.js
-// Глобальна змінна для відстеження перетягуваного елемента для ЦІЄЇ ГРИ
+
 let draggedItem5 = null; 
 
 // --- ДОПОМІЖНІ ФУНКЦІЇ ---
@@ -62,26 +54,29 @@ function createDialogPuzzle5(puzzleData, index) {
         return;
     }
     
-    const puzzleWrapper = document.createElement('div');
-    puzzleWrapper.id = puzzleId;
-    puzzleWrapper.className = "puzzle-wrapper bg-white p-4 rounded-lg shadow-md flex flex-col items-center relative mb-6";
-    puzzleWrapper.innerHTML = `
-        <p class="text-xl md:text-2xl font-bold text-gray-700 mb-4 text-center">${ukrainianPhrase}</p> 
-        
-        <div id="word-drop-zone-group-${index}" class="word-drop-zone-group5 flex flex-wrap justify-center items-center gap-2 mb-4 min-h-[60px] p-2 border-2 border-dashed border-gray-200 rounded-md">
-            </div>
+const puzzleWrapper = document.createElement('div');
+puzzleWrapper.id = puzzleId;
+puzzleWrapper.className = "puzzle-wrapper bg-white p-4 rounded-lg shadow-md flex flex-col items-center relative mb-6";
+puzzleWrapper.innerHTML = `
+    <p class="text-xl md:text-2xl font-bold text-gray-700 mb-4 text-center">${ukrainianPhrase}</p> 
+    
+    <div id="word-drop-zone-group-${index}" class="word-drop-zone-group5 flex flex-wrap justify-center items-center gap-2 mb-4 min-h-[60px] p-2 border-2 border-dashed border-gray-200 rounded-md">
+    </div>
 
-        <div id="draggable-words-for-puzzle-${index}" class="draggable-words-individual-container5 w-full bg-yellow-200 bg-opacity-95 backdrop-blur-sm p-4 rounded-md shadow-inner flex flex-wrap justify-center gap-2">
-            </div>
-        
-        <div class="mt-3 w-full">
-            <button id="check-btn-dialog-${index}" class="w-full bg-sky-500 text-white font-bold py-1.5 px-3 rounded-md hover:bg-sky-600 transition-colors duration-300 disabled:bg-slate-300 text-sm">
-                Перевірити
-            </button>
-            <p id="message-dialog-${index}" class="mt-1 h-4 text-center text-xs font-medium"></p>
-        </div>
-    `;
-    dialogPuzzlesContainer.appendChild(puzzleWrapper);
+    <div id="draggable-words-for-puzzle-${index}" class="draggable-words-individual-container5 w-full bg-blue-50 bg-opacity-95 backdrop-blur-sm p-4 rounded-md shadow-inner flex flex-wrap justify-center gap-2">
+    </div>
+    
+    <div class="mt-3 w-full">
+      <div class="mt-3 w-full flex justify-center">
+    <button id="check-btn-dialog-${index}" class="min-w-[180px] py-3 px-6 bg-sky-500 text-white text-base font-bold rounded-lg hover:bg-sky-600 transition-colors duration-300 disabled:bg-slate-300">
+        Перевірити
+    </button>
+   </div>
+
+        <p id="message-dialog-${index}" class="mt-1 h-4 text-center text-xs font-medium"></p>
+    </div>
+`;
+dialogPuzzlesContainer.appendChild(puzzleWrapper);
     
     const wordDropZoneGroup = document.getElementById(`word-drop-zone-group-${index}`);
     const checkBtn = document.getElementById(`check-btn-dialog-${index}`);
@@ -90,7 +85,7 @@ function createDialogPuzzle5(puzzleData, index) {
 
     englishWords.forEach((wordPart, wordPartIndex) => {
         const dropZone = document.createElement('div');
-        dropZone.className = 'word-drop-slot5 w-auto px-2 py-1 min-w-[50px] h-10 border-2 border-dashed border-gray-300 rounded flex items-center justify-center text-lg font-bold text-gray-500 overflow-hidden';
+        dropZone.className = 'word-drop-slot5 w-auto min-w-[70px] h-14 border-2 border-dashed border-gray-300 rounded flex items-center justify-center text-lg font-bold text-gray-500 overflow-hidden';
         dropZone.dataset.expectedWord = wordPart;
         addWordDropZoneListeners5(dropZone, individualDraggableWordsContainer); 
         wordDropZoneGroup.appendChild(dropZone);
@@ -115,7 +110,7 @@ function createIndividualDraggableWords5(wordsArray, targetContainer) {
     wordsToDrag.forEach((word, index) => {
         const wordBox = document.createElement('div');
         wordBox.id = `draggable-dialog-word-${targetContainer.id}-${index}`; 
-        wordBox.className = 'draggable-word-slot5 bg-yellow-400 text-yellow-900 py-3 px-6 rounded-lg shadow-md cursor-grab text-xl md:text-2xl font-semibold transition-transform duration-200 hover:scale-105'; 
+        wordBox.className = 'draggable-word-slot5 bg-blue-300 text-blue-700 py-3 rounded-lg shadow-md cursor-grab text-xl md:text-2xl font-semibold transition-transform duration-200 hover:scale-105'; 
         wordBox.textContent = word;
         wordBox.draggable = true;
         addDraggableWordListeners5(wordBox);

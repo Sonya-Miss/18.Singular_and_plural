@@ -1,0 +1,100 @@
+/* style.css */
+
+/* Додаткові стилі для карток слів */
+.word-card {
+    background-color: #f0f4f8; /* Light blue-gray background */
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 600; /* font-semibold */
+    color: #374151; /* Gray-800 */
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: 2px solid transparent; /* Для візуалізації вибору */
+    text-align: center;
+}
+
+.word-card:hover {
+    background-color: #e2e8f0; /* Slightly darker on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.word-card.selected {
+    border-color: #3b82f6; /* Blue-500 border */
+    background-color: #c9bffe; /* Blue-200 background */
+    color: #1e40af; /* Blue-800 text */
+    transform: none; /* Disable hover transform when selected */
+    box-shadow: 0 0 0 3px #93c5fd; /* Ring effect */
+}
+
+.word-card.matched {
+    background-color: #dcfce7; /* Green-100 */
+    color: #065f46; /* Green-800 */
+    border-color: #34d399; /* Green-500 */
+    cursor: default;
+    pointer-events: none; /* Не можна клікати після з'єднання */
+    box-shadow: 0 0 0 3px #a7f3d0; /* Green ring */
+}
+
+.word-card.incorrect {
+    background-color: #fee2e2; /* Red-100 */
+    color: #991b1b; /* Red-800 */
+    border-color: #ef4444; /* Red-500 */
+    animation: shake 0.5s; /* Анімація "трусіння" */
+}
+
+/* Анімація для неправильного вибору */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-5px); }
+    40% { transform: translateX(5px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+}
+
+/* Стилі для повідомлень */
+.message-success {
+    color: #10b981; /* Green-500 */
+}
+
+.message-error {
+    color: #ef4444; /* Red-500 */
+}
+
+        #line-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Дозволяє клікам "проходити" крізь canvas до карток */
+            z-index: 1; /* Поверх карток, але під кнопками/текстом */
+        }
+        .game-area-wrapper {
+            position: relative; /* Для позиціонування canvas */
+            display: flex;
+            justify-content: space-around;
+            gap: 8;
+        }
+        #english-column, #ukrainian-column {
+            z-index: 2; /* Картки повинні бути над canvas, щоб їх можна було клікати */
+        }
+
+
+.word-card.connected {
+    background-color: #e0f2f7; /* Light cyan */
+    color: #0d7490; /* Dark cyan */
+    border-color: #1590a3; /* Cyan-400 */
+    cursor: default;
+    pointer-events: none; /* Не можна клікати після з'єднання */
+    box-shadow: 0 0 0 3px #479da9; /* Cyan ring */
+}
+
+.word-card.correct-match {
+    background-color: #56caa3; /* Tailwind emerald-500 */
+    color: white; /* Для кращої контрастності тексту */
+    border-color: #086d4d; /* Темніша зелена рамка */
+}
